@@ -1,0 +1,85 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    color: #fff;
+    line-height: 1.5;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+  }
+  
+  h1 {
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 30px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    color: #ccc;
+    margin-bottom: 20px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  a:hover {
+    color: #0056b3;
+  }
+  
+  /* Index Page Styles */
+  #index ul {
+    padding-left: 20px;
+  }
+  
+  /* Past Papers Page Styles */
+  #past-papers ul {
+    padding-left: 40px;
+  }
+  
+  /* Mark Schemes Page Styles */
+  #mark-schemes ul {
+    padding-left: 40px;
+  }
+  
+  /* Media Queries */
+  @media screen and (max-width: 600px) {
+    .container {
+      padding: 20px;
+    }
+  
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  
+    h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+  
+    #past-papers ul,
+    #mark-schemes ul {
+      padding-left: 20px;
+    }
+  }
+
+  a.selected {
+    color: #FF0000; /* Replace with the desired color */
+  }
+  
+  
