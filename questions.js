@@ -430,6 +430,66 @@ document.addEventListener("DOMContentLoaded", function () {
 
   generateUnitCheckboxes();
 
+
+  // Function to open the modal
+    function openModal() {
+        populateModalInfo();
+        const modal = document.getElementById("questionInfoModal");
+        modal.style.display = "block";
+    }
+
+    document.querySelector(".close").addEventListener("click", function() {
+        const modal = document.getElementById("questionInfoModal");
+        modal.style.display = "none";
+    });
+
+    function populateModalInfo() {
+        const filePathElement = document.getElementById("filePath");
+        const unitInfoElement = document.getElementById("unitInfo");
+        const paperInfoElement = document.getElementById("paperNumber");
+        const questionNoElement = document.getElementById("questionNumber");
+    
+        // Fetch the current displayed question's path from the image's src attribute
+        const displayedQuestion = document.getElementById("questionDisplay").querySelector("img");
+        const questionPath = displayedQuestion ? displayedQuestion.getAttribute("src") : null;
+        const question = questionPath.replace(/\.\/assets\/unit\d+\//, "");
+
+        console.log(question);
+        // Set the file path to the modal's content
+        filePathElement.textContent = question || "No question displayed.";
+    
+        // Extract the unit number from the question path
+        const unitMatch = questionPath && questionPath.match(/unit(\d+)/);
+        const unitNumber = unitMatch && unitMatch[1];
+    
+        // Set the unit information
+        unitInfoElement.textContent = unitNumber ? `Unit ${unitNumber}` : "No unit information available.";
+        
+        // Extract the paper number from the questions path
+
+        const paperMatch = questionPath && questionPath.match(/qp_(\d)/);
+        const paperNumber = paperMatch ? paperMatch[1] : null;
+
+        // Set the paper information
+        paperInfoElement.textContent = paperNumber ? `Paper ${paperNumber}` : "No paper information available.";
+
+        // Extract the question number from the question path
+        const questionNoMatch = questionPath && questionPath.match(/q_(\d)/);
+        const questionNo = questionNoMatch ? questionNoMatch[1] : null;
+
+        // Set the question number information
+        questionNoElement.textContent = questionNo ? `Question ${questionNo}` : "No question number information available.";
+
+        console.log("Current Question Path:", questionPath);
+        console.log("Current Unit Number:", unitNumber);
+
+    }
+    
+    
+    
+    
+
+
   // Attach the getRandomQuestion function to a button
   document
     .getElementById("randomQuestionButton")
@@ -437,4 +497,10 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("getQuestionAnswerButton")
     .addEventListener("click", getQuestionAnswer);
+
+    document.getElementById("getQuestionInfoButton").addEventListener("click", function() {
+        openModal();
+    });
+    
 });
+
