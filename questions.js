@@ -304,6 +304,32 @@ document.addEventListener("DOMContentLoaded", function () {
       "9618_s22_qp_33_q_2.png",
       "9618_w22_qp_32_q_1.png",
     ],
+    unit21: [
+      "9618_s21_qp_41_q_1.png",
+      "9618_s22_qp_41_q_3.png",	
+      "9618_s23_qp_43_q_2.png",
+      "9618_s21_qp_41_q_3.png",
+      "9618_s22_qp_42_q_1.png",	
+      "9618_w21_qp_41_q_1.png",
+      "9618_s21_qp_42_q_1.png",
+      "9618_s22_qp_43_q_1.png",	
+      "9618_w21_qp_41_q_3.png",
+      "9618_s21_qp_42_q_3.png",
+      "9618_s22_qp_43_q_2.png",
+      "9618_w21_qp_42_q_1.png",
+      "9618_s21_qp_43_q_1.png",
+      "9618_s22_qp_43_q_3.png",
+      "9618_w21_qp_42_q_3.png",
+      "9618_s21_qp_43_q_3.png",
+      "9618_s23_qp_41_q_1.png",
+      "9618_w22_qp_41_q_1.png",
+      "9618_s22_qp_41_q_1.png",	
+      "9618_s23_qp_41_q_2.png",
+      "9618_w22_qp_42_q_1.png",
+      "9618_s22_qp_41_q_2.png",
+      "9618_s23_qp_43_q_1.png",
+      "9618_w22_qp_43_q_1.png",
+    ],
   };
   // Function to open mark scheme for the current question
     function getQuestionAnswer() {
@@ -346,7 +372,7 @@ document.addEventListener("DOMContentLoaded", function () {
       { start: 1, end: 8, column: "column1" },
       { start: 9, end: 12, column: "column2" },
       { start: 13, end: 20, column: "column3" },
-      { start: 19, end: 20, column: "column4" },
+      { start: 19, end: 21, column: "column4" },
     ];
 
     unitRanges.forEach((range) => {
