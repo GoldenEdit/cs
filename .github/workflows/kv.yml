@@ -3,7 +3,7 @@ name: Update Cloudflare KV
 on:
   push:
     branches:
-      - main
+      - dev
 
 jobs:
   update-kv:
