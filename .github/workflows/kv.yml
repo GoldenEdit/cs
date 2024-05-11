@@ -1,0 +1,26 @@
+name: Update Cloudflare KV
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-kv:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install Node.js Dependencies
+      run: |
+        npm install axios
+
+    - name: Upload Directory Listing to Cloudflare KV
+      run: node update-kv.js
+      env:
+        CF_WORKER_URL: ${{ secrets.CF_WORKER_URL }}
+        CF_AUTH_TOKEN: ${{ secrets.CF_AUTH_TOKEN }}

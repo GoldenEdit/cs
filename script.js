@@ -1,4 +1,39 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Function to fetch and display files
+    async function displayFiles(paperType, containerId) {
+      const qpResponse = await fetch(`/assets/qp/${paperType}`);
+      const msResponse = await fetch(`/assets/ms/${paperType}`);
+
+      const qpFiles = await qpResponse.json();
+      const msFiles = await msResponse.json();
+
+      const qpContainer = document.querySelector(`#${containerId} .question-papers`);
+      const msContainer = document.querySelector(`#${containerId} .mark-schemes`);
+
+      qpFiles.forEach(file => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = `/assets/qp/${paperType}/${file}`;
+          a.textContent = file;
+          li.appendChild(a);
+          qpContainer.appendChild(li);
+      });
+
+      msFiles.forEach(file => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = `/assets/ms/${paperType}/${file}`;
+          a.textContent = file;
+          li.appendChild(a);
+          msContainer.appendChild(li);
+      });
+  }
+
+  // Populate papers and mark schemes for each paper type
+  ['paper1', 'paper2', 'paper3', 'paper4'].forEach(paperType => {
+      displayFiles(paperType, `${paperType}-container`);
+  });
+  
     var links = document.querySelectorAll('a[href$=".pdf"]');
   
     // Check if the user has any saved preferences
