@@ -82,6 +82,48 @@ body {
     color: #FF0000; /* Replace with the desired color */
   }
 
+/* Past Papers Table Styles */
+
+table {
+  width: 50%;
+  border-collapse: collapse; /* Removes space between borders */
+  margin-top: 20px; /* Adds space above the table */
+  background-color: rgba(255, 255, 255, 0.034); /* Light grey background with low opacity */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Ensures the rounded corners are applied to the content */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+th, td {
+  text-align: left; /* Aligns text to the left */
+  padding: 12px 15px; /* Vertical and horizontal padding */
+  border-bottom: 1px solid #dddddd67; /* Light grey border for each row */
+}
+
+th {
+  background-color: #f8f9fa3d; /* Slightly darker shade for header */
+  color: #ccc; /* Dark grey color for text */
+  font-weight: bold; /* Normal font weight for a more modern look */
+}
+
+tr:last-child td {
+  border-bottom: none; /* Removes the border from the last row */
+}
+
+tr:hover {
+  background-color: rgba(0, 123, 255, 0.1); /* Highlight row on hover with a light blue background */
+}
+
+a {
+  color: #007bff; /* Links are standard blue for accessibility */
+}
+
+a:hover {
+  color: #0056b3; /* Darker blue on hover for links */
+}
+
+
+
 /* Questions Page Styles */
 .units-columns {
   display: flex;
