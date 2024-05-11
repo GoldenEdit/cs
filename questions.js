@@ -332,11 +332,55 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
   };
   // Function to open mark scheme for the current question
-    function getQuestionAnswer() {
-    
-    console.info("Answer Path", answerPath);
-    displayAnswer(answerPath);
+  function getQuestionAnswer() {
+    const displayedQuestionImg = document.getElementById("questionDisplay").querySelector("img");
+    if (!displayedQuestionImg) {
+        console.error("No question displayed");
+        return;
     }
+
+    const questionPath = displayedQuestionImg.getAttribute("src");
+    console.info("Current Question Path:", questionPath);
+
+    // Regex to extract the base path of the question (excluding the specific question part)
+    const basePathRegex = /^(.*\/)(9618_[sw]\d+_qp_(\d+))_q_\d+\.png$/;
+    const match = questionPath.match(basePathRegex);
+
+    if (!match) {
+        console.error("Invalid question path format");
+        return;
+    }
+
+    // Extracted directory path, base file name, and paper number
+    const fullPath = match[1];
+    const baseFileName = match[2];
+    const paperNumber = match[3][0]; // Assuming paper numbers are the first digit of the two-digit number
+
+    // Convert question paper code to mark scheme code
+    const markSchemeFileName = baseFileName.replace('qp', 'ms');
+
+    // Construct the full path to the mark scheme PDF
+    const markSchemePath = `./assets/ms/paper${paperNumber}/${markSchemeFileName}.pdf`;
+
+    console.info("Mark Scheme Path:", markSchemePath);
+
+    // Display a clickable link to the mark scheme
+    displayAnswer(markSchemePath);
+}
+
+// Function to display the answer link by opening a new tab
+function displayAnswer(answerPath) {
+  if (!answerPath) {
+      console.error("No answer path provided");
+      return;
+  }
+
+  // Open the mark scheme in a new tab
+  window.open(answerPath, '_blank');
+}
+
+
+
   // Function to get a random question from the selected units
   function getRandomQuestion() {
     const selectedUnits = Array.from(
